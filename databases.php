@@ -16,29 +16,30 @@
 			$cni = '';
 			switch ($_REQUEST['action']) {
 				case 'senMail':
-					$mailContent = file_get_contents('newsl/renault.html');
-					$mailContent = str_replace('{{!nom}}','Flan',$mailContent);
-					$mailContent = str_replace('{{!contenu}}','Docteur contact est le premier site au maroc dédié aux médecins et dentistes privés.
-Vous cherchez et vous localisez facilement vos médecins, sur notre site.
-Effectuez des recherches approchées facilement, et bonne visite',$mailContent);
+				$mailContent = file_get_contents('newsl/renault.html');
+				$mailContent = str_replace('{{!nom}}','Flan',$mailContent);
+				$mailContent = str_replace('{{!contenu}}','Docteur contact est le premier site au maroc dédié aux médecins et dentistes privés.
+					Vous cherchez et vous localisez facilement vos médecins, sur notre site.
+					Effectuez des recherches approchées facilement, et bonne visite',$mailContent);
 
-					require 'config/phpmailer/class.phpmailer.php';
-					$monMail = new phpmailer();
-					$monMail->AddAddress('hichamhamdan@gmail.com');
-					$monMail->From = 'directeur@fst-settat.com';
-					$monMail->FromName = 'Le directeur';
-					$monMail->Subject = 'Bonjour';
-					$monMail->Body = $mailContent;
-					$monMail->ContentType = 'text/html';
-					$res = $monMail->Send();
-					var_dump($res);
-
+				require 'config/phpmailer/class.phpmailer.php';
+				$monMail = new phpmailer();
+				$monMail->AddAddress('hichamhamdan@gmail.com');
+				$monMail->From = 'directeur@fst-settat.com';
+				$monMail->FromName = 'Le directeur';
+				$monMail->Subject = 'Bonjour';
+				$monMail->Body = $mailContent;
+				$monMail->ContentType = 'text/html';
+				$res = $monMail->Send();
 					// $headers = "From: hichamhamdan@gmail.com \r\n" ; 
 					// $headers .= "Reply-To: hichamhamdan@gmail.com \r\n";
 					// $headers.= " Content-type: text/html; charset=iso-8859-1 \r\n";
 					// mail('hichamhamdan@gmail.com','Exemple NewsLetter',$mailContent,$headers);
 					//print $mailContent;
+				if($res)
 					die('Mail envoyé');
+				else
+					die('Mail non envoyé');
 				break;
 				case 'actif':
 				case 'inactif':
@@ -61,7 +62,7 @@ Effectuez des recherches approchées facilement, et bonne visite',$mailContent);
 				// print '</pre>';
 				// pre($_REQUEST);
 				supprimerAll(T_ETUDIANTS,implode($_REQUEST['ids'],','));
-					
+
 				break;
 				case 'ajouter':
 				case 'Enregistrer':
@@ -92,7 +93,15 @@ Effectuez des recherches approchées facilement, et bonne visite',$mailContent);
 				default:break;
 			}
 		}
-		$sql = 'select * from etudiants';
+
+		$champ = (isset($_REQUEST['champ']))?$_REQUEST['champ']:'id';
+		$ordre = (isset($_REQUEST['ordre']))?$_REQUEST['ordre']:'asc';
+		if($ordre=='desc')
+			$ordre = 'asc';
+		else
+			$ordre = 'desc';
+
+		$sql = 'select * from etudiants order by '.$champ.' '.$ordre;
 $res = $conn->query($sql,PDO::FETCH_ASSOC);//FETCH_OBJ
 $etudiants = $res->fetchAll();
 ?>
@@ -121,16 +130,18 @@ $etudiants = $res->fetchAll();
 	<thead>
 		<tr>
 			<td align="center"><input type="checkbox" id="selectAll"/></td>
-			<th align="center">Id</th>
+			
+			<th align="center"><a href="?champ=id&ordre=<?php print ($_REQUEST['champ']=='id')?$ordre:'asc' ?>" title="">Id</a></th>
 			<th align="center">image</th>
 			<th align="center">cni</th>
-			<th align="center">Nom</th>
+			<th align="center"><a href="?champ=nom&ordre=<?php print ($_REQUEST['champ']=='nom')?$ordre:'asc' ?>" title="">Nom</a></th>
 			<th align="center">Prénom</th>
-			<th align="center">Age</th>
+			<th align="center"><a href="?champ=age&ordre=<?php print ($_REQUEST['champ']=='age')?$ordre:'asc' ?>" title="">Age</a></th>
 			<th align="center">statut</th>
 			<th align="center">Supprimer</th>
 			<th align="center">Modifier</th>
 			<th align="center">Mail</th>
+			
 		</tr>
 	</thead>
 	<form action="" method="post" accept-charset="utf-8">
@@ -138,7 +149,7 @@ $etudiants = $res->fetchAll();
 			<?php foreach ($etudiants as $etudiant): ?>
 				<tr>
 					<td align="center">
-					<input type="checkbox" name="ids[]" value="<?php print $etudiant['id'] ?>">
+						<input type="checkbox" name="ids[]" value="<?php print $etudiant['id'] ?>">
 
 
 					</td>
@@ -156,7 +167,7 @@ $etudiants = $res->fetchAll();
 					<td><?php print $etudiant['prenom'] ?></td>
 					<td><?php print $etudiant['age'] ?></td>
 					<td><!-- <a href="?id=<?php print $etudiant['id'] ?>&action=statut&statut=<?php print ($etudiant['statut']=="actif")?'inactif':'actif' ?>"><?php print $etudiant['statut'] ?></a> -->
-					<a href="?id=<?php print $etudiant['id'] ?>&action=<?php print ($etudiant['statut']=="actif")?'inactif':'actif' ?>"><?php print $etudiant['statut'] ?></a>
+						<a href="?id=<?php print $etudiant['id'] ?>&action=<?php print ($etudiant['statut']=="actif")?'inactif':'actif' ?>"><?php print $etudiant['statut'] ?></a>
 					</td>
 					<td align="center"><a class="confirm" href="databases.php?id=<?php print $etudiant['id'] ?>&action=del" title="Supprimer"><i class="fa fa-trash-o"></i></a></td>
 					<td  align="center"><a class="confirm" href="databases.php?id=<?php print $etudiant['id'] ?>&action=modifier" title="Supprimer"><i class="fa fa-edit"></i></a></td>
