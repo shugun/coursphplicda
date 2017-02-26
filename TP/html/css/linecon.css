@@ -1,0 +1,89 @@
+ [class^="licon-"]:before, [class*=" licon-"]:before {
+  font-family: "linecons";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+     
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - magrins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+ 
+.licon-music:before { content: '\e022'; } /* '' */
+.licon-search:before { content: '\e009'; } /* '' */
+.licon-mail:before { content: '\e019'; } /* '' */
+.licon-heart:before { content: '\e000'; } /* '' */
+.licon-star:before { content: '\e002'; } /* '' */
+.licon-user:before { content: '\e007'; } /* '' */
+.licon-videocam:before { content: '\e005'; } /* '' */
+.licon-camera:before { content: '\e00b'; } /* '' */
+.licon-photo:before { content: '\e01b'; } /* '' */
+.licon-attach:before { content: '\e029'; } /* '' */
+.licon-lock:before { content: '\e00d'; } /* '' */
+.licon-eye:before { content: '\e013'; } /* '' */
+.licon-tag:before { content: '\e00c'; } /* '' */
+.licon-thumbs-up:before { content: '\e01a'; } /* '' */
+.licon-pencil:before { content: '\e00f'; } /* '' */
+.licon-comment:before { content: '\e014'; } /* '' */
+.licon-location:before { content: '\e012'; } /* '' */
+.licon-cup:before { content: '\e016'; } /* '' */
+.licon-trash:before { content: '\e006'; } /* '' */
+.licon-doc:before { content: '\e018'; } /* '' */
+.licon-note:before { content: '\e01c'; } /* '' */
+.licon-cog:before { content: '\e00a'; } /* '' */
+.licon-params:before { content: '\e01f'; } /* '' */
+.licon-calendar:before { content: '\e02b'; } /* '' */
+.licon-sound:before { content: '\e004'; } /* '' */
+.licon-clock:before { content: '\e01d'; } /* '' */
+.licon-lightbulb:before { content: '\e00e'; } /* '' */
+.licon-tv:before { content: '\e003'; } /* '' */
+.licon-desktop:before { content: '\e011'; } /* '' */
+.licon-mobile:before { content: '\e017'; } /* '' */
+.licon-cd:before { content: '\e02d'; } /* '' */
+.licon-inbox:before { content: '\e015'; } /* '' */
+.licon-globe:before { content: '\e02f'; } /* '' */
+.licon-cloud:before { content: '\e001'; } /* '' */
+.licon-paper-plane:before { content: '\e01e'; } /* '' */
+.licon-fire:before { content: '\e028'; } /* '' */
+.licon-graduation-cap:before { content: '\e024'; } /* '' */
+.licon-megaphone:before { content: '\e023'; } /* '' */
+.licon-database:before { content: '\e021'; } /* '' */
+.licon-key:before { content: '\e008'; } /* '' */
+.licon-beaker:before { content: '\e025'; } /* '' */
+.licon-truck:before { content: '\e02e'; } /* '' */
+.licon-money:before { content: '\e020'; } /* '' */
+.licon-food:before { content: '\e026'; } /* '' */
+.licon-shop:before { content: '\e02a'; } /* '' */
+.licon-diamond:before { content: '\e010'; } /* '' */
+.licon-t-shirt:before { content: '\e027'; } /* '' */
+.licon-wallet:before { content: '\e02c'; } /* '' */</style><script>function toggleCodes(on) {
+  var obj = document.getElementById('icons');
+  
+  if (on) {
+    obj.className += ' ' + 'codesOn';
+  } else {
+    obj.className = obj.className.replace(' codesOn', '');
+  }
+}
+</script></head><body><div class="container header"><h1>Linecons
+ <small>font demo</small></h1><label class="switch"><input type="checkbox" onclick="toggleCodes(this.checked)">show codes</label></div><div id="icons" class="container"><div class="row"><div title="Code: 0xe022" class="the-icons span3"><i class="licon-music"></i> <span class="i-name">licon-music</span><span class="i-code">0xe022</span></div><div title="Code: 0xe009" class="the-icons span3"><i class="licon-search"></i> <span class="i-name">licon-search</span><span class="i-code">0xe009</span></div><div title="Code: 0xe019" class="the-icons span3"><i class="licon-mail"></i> <span class="i-name">licon-mail</span><span class="i-code">0xe019</span></div><div title="Code: 0xe000" class="the-icons span3"><i class="licon-heart"></i> <span class="i-name">licon-heart</span><span class="i-code">0xe000</span></div></div><div class="row"><div title="Code: 0xe002" class="the-icons span3"><i class="licon-star"></i> <span class="i-name">licon-star</span><span class="i-code">0xe002</span></div><div title="Code: 0xe007" class="the-icons span3"><i class="licon-user"></i> <span class="i-name">licon-user</span><span class="i-code">0xe007</span></div><div title="Code: 0xe005" class="the-icons span3"><i class="licon-videocam"></i> <span class="i-name">licon-videocam</span><span class="i-code">0xe005</span></div><div title="Code: 0xe00b" class="the-icons span3"><i class="licon-camera"></i> <span class="i-name">licon-camera</span><span class="i-code">0xe00b</span></div></div><div class="row"><div title="Code: 0xe01b" class="the-icons span3"><i class="licon-photo"></i> <span class="i-name">licon-photo</span><span class="i-code">0xe01b</span></div><div title="Code: 0xe029" class="the-icons span3"><i class="licon-attach"></i> <span class="i-name">licon-attach</span><span class="i-code">0xe029</span></div><div title="Code: 0xe00d" class="the-icons span3"><i class="licon-lock"></i> <span class="i-name">licon-lock</span><span class="i-code">0xe00d</span></div><div title="Code: 0xe013" class="the-icons span3"><i class="licon-eye"></i> <span class="i-name">licon-eye</span><span class="i-code">0xe013</span></div></div><div class="row"><div title="Code: 0xe00c" class="the-icons span3"><i class="licon-tag"></i> <span class="i-name">licon-tag</span><span class="i-code">0xe00c</span></div><div title="Code: 0xe01a" class="the-icons span3"><i class="licon-thumbs-up"></i> <span class="i-name">licon-thumbs-up</span><span class="i-code">0xe01a</span></div><div title="Code: 0xe00f" class="the-icons span3"><i class="licon-pencil"></i> <span class="i-name">licon-pencil</span><span class="i-code">0xe00f</span></div><div title="Code: 0xe014" class="the-icons span3"><i class="licon-comment"></i> <span class="i-name">licon-comment</span><span class="i-code">0xe014</span></div></div><div class="row"><div title="Code: 0xe012" class="the-icons span3"><i class="licon-location"></i> <span class="i-name">licon-location</span><span class="i-code">0xe012</span></div><div title="Code: 0xe016" class="the-icons span3"><i class="licon-cup"></i> <span class="i-name">licon-cup</span><span class="i-code">0xe016</span></div><div title="Code: 0xe006" class="the-icons span3"><i class="licon-trash"></i> <span class="i-name">licon-trash</span><span class="i-code">0xe006</span></div><div title="Code: 0xe018" class="the-icons span3"><i class="licon-doc"></i> <span class="i-name">licon-doc</span><span class="i-code">0xe018</span></div></div><div class="row"><div title="Code: 0xe01c" class="the-icons span3"><i class="licon-note"></i> <span class="i-name">licon-note</span><span class="i-code">0xe01c</span></div><div title="Code: 0xe00a" class="the-icons span3"><i class="licon-cog"></i> <span class="i-name">licon-cog</span><span class="i-code">0xe00a</span></div><div title="Code: 0xe01f" class="the-icons span3"><i class="licon-params"></i> <span class="i-name">licon-params</span><span class="i-code">0xe01f</span></div><div title="Code: 0xe02b" class="the-icons span3"><i class="licon-calendar"></i> <span class="i-name">licon-calendar</span><span class="i-code">0xe02b</span></div></div><div class="row"><div title="Code: 0xe004" class="the-icons span3"><i class="licon-sound"></i> <span class="i-name">licon-sound</span><span class="i-code">0xe004</span></div><div title="Code: 0xe01d" class="the-icons span3"><i class="licon-clock"></i> <span class="i-name">licon-clock</span><span class="i-code">0xe01d</span></div><div title="Code: 0xe00e" class="the-icons span3"><i class="licon-lightbulb"></i> <span class="i-name">licon-lightbulb</span><span class="i-code">0xe00e</span></div><div title="Code: 0xe003" class="the-icons span3"><i class="licon-tv"></i> <span class="i-name">licon-tv</span><span class="i-code">0xe003</span></div></div><div class="row"><div title="Code: 0xe011" class="the-icons span3"><i class="licon-desktop"></i> <span class="i-name">licon-desktop</span><span class="i-code">0xe011</span></div><div title="Code: 0xe017" class="the-icons span3"><i class="licon-mobile"></i> <span class="i-name">licon-mobile</span><span class="i-code">0xe017</span></div><div title="Code: 0xe02d" class="the-icons span3"><i class="licon-cd"></i> <span class="i-name">licon-cd</span><span class="i-code">0xe02d</span></div><div title="Code: 0xe015" class="the-icons span3"><i class="licon-inbox"></i> <span class="i-name">licon-inbox</span><span class="i-code">0xe015</span></div></div><div class="row"><div title="Code: 0xe02f" class="the-icons span3"><i class="licon-globe"></i> <span class="i-name">licon-globe</span><span class="i-code">0xe02f</span></div><div title="Code: 0xe001" class="the-icons span3"><i class="licon-cloud"></i> <span class="i-name">licon-cloud</span><span class="i-code">0xe001</span></div><div title="Code: 0xe01e" class="the-icons span3"><i class="licon-paper-plane"></i> <span class="i-name">licon-paper-plane</span><span class="i-code">0xe01e</span></div><div title="Code: 0xe028" class="the-icons span3"><i class="licon-fire"></i> <span class="i-name">licon-fire</span><span class="i-code">0xe028</span></div></div><div class="row"><div title="Code: 0xe024" class="the-icons span3"><i class="licon-graduation-cap"></i> <span class="i-name">licon-graduation-cap</span><span class="i-code">0xe024</span></div><div title="Code: 0xe023" class="the-icons span3"><i class="licon-megaphone"></i> <span class="i-name">licon-megaphone</span><span class="i-code">0xe023</span></div><div title="Code: 0xe021" class="the-icons span3"><i class="licon-database"></i> <span class="i-name">licon-database</span><span class="i-code">0xe021</span></div><div title="Code: 0xe008" class="the-icons span3"><i class="licon-key"></i> <span class="i-name">licon-key</span><span class="i-code">0xe008</span></div></div><div class="row"><div title="Code: 0xe025" class="the-icons span3"><i class="licon-beaker"></i> <span class="i-name">licon-beaker</span><span class="i-code">0xe025</span></div><div title="Code: 0xe02e" class="the-icons span3"><i class="licon-truck"></i> <span class="i-name">licon-truck</span><span class="i-code">0xe02e</span></div><div title="Code: 0xe020" class="the-icons span3"><i class="licon-money"></i> <span class="i-name">licon-money</span><span class="i-code">0xe020</span></div><div title="Code: 0xe026" class="the-icons span3"><i class="licon-food"></i> <span class="i-name">licon-food</span><span class="i-code">0xe026</span></div></div><div class="row"><div title="Code: 0xe02a" class="the-icons span3"><i class="licon-shop"></i> <span class="i-name">licon-shop</span><span class="i-code">0xe02a</span></div><div title="Code: 0xe010" class="the-icons span3"><i class="licon-diamond"></i> <span class="i-name">licon-diamond</span><span class="i-code">0xe010</span></div><div title="Code: 0xe027" class="the-icons span3"><i class="licon-t-shirt"></i> <span class="i-name">licon-t-shirt</span><span class="i-code">0xe027</span></div><div title="Code: 0xe02c" class="the-icons span3"><i class="licon-wallet"></i> <span class="i-name">licon-wallet</span><span class="i-code">0xe02c</span></div></div></div><div class="container footer">Generated by <a href="http://fontello.com">fontello.com</a></div></body></html>
