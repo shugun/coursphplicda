@@ -14,10 +14,11 @@
 			$name = '';
 			$cni = '';
 			switch ($_REQUEST['action']) {
-				case 'statut':
-				$sql = $conn->prepare('update etudiants set statut=:statut where id=:id');
+				case 'actif':
+				case 'inactif':
+				$sql = $conn->prepare('update etudiants set statut=:action where id=:id');
 				$sql->execute(array(
-					':statut' => $_REQUEST['statut'],
+					':action' => $_REQUEST['action'],
 					':id' => $_REQUEST['id'],
 					));
 				break;
@@ -127,7 +128,9 @@ $etudiants = $res->fetchAll();
 					<td><?php print $etudiant['nom'] ?></td>
 					<td><?php print $etudiant['prenom'] ?></td>
 					<td><?php print $etudiant['age'] ?></td>
-					<td><a href="?id=<?php print $etudiant['id'] ?>&action=statut&statut=<?php print ($etudiant['statut']=="actif")?'inactif':'actif' ?>"><?php print $etudiant['statut'] ?></a></td>
+					<td><!-- <a href="?id=<?php print $etudiant['id'] ?>&action=statut&statut=<?php print ($etudiant['statut']=="actif")?'inactif':'actif' ?>"><?php print $etudiant['statut'] ?></a> -->
+					<a href="?id=<?php print $etudiant['id'] ?>&action=<?php print ($etudiant['statut']=="actif")?'inactif':'actif' ?>"><?php print $etudiant['statut'] ?></a>
+					</td>
 					<td align="center"><a class="confirm" href="databases.php?id=<?php print $etudiant['id'] ?>&action=del" title="Supprimer"><i class="fa fa-trash-o"></i></a></td>
 					<td  align="center"><a class="confirm" href="databases.php?id=<?php print $etudiant['id'] ?>&action=modifier" title="Supprimer"><i class="fa fa-edit"></i></a></td>
 				</tr>
