@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title></title>
+	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
 </head>
@@ -14,6 +15,31 @@
 			$name = '';
 			$cni = '';
 			switch ($_REQUEST['action']) {
+				case 'senMail':
+					$mailContent = file_get_contents('newsl/renault.html');
+					$mailContent = str_replace('{{!nom}}','Flan',$mailContent);
+					$mailContent = str_replace('{{!contenu}}','Docteur contact est le premier site au maroc dédié aux médecins et dentistes privés.
+Vous cherchez et vous localisez facilement vos médecins, sur notre site.
+Effectuez des recherches approchées facilement, et bonne visite',$mailContent);
+
+					require 'config/phpmailer/class.phpmailer.php';
+					$monMail = new phpmailer();
+					$monMail->AddAddress('hichamhamdan@gmail.com');
+					$monMail->From = 'directeur@fst-settat.com';
+					$monMail->FromName = 'Le directeur';
+					$monMail->Subject = 'Bonjour';
+					$monMail->Body = $mailContent;
+					$monMail->ContentType = 'text/html';
+					$res = $monMail->Send();
+					var_dump($res);
+
+					// $headers = "From: hichamhamdan@gmail.com \r\n" ; 
+					// $headers .= "Reply-To: hichamhamdan@gmail.com \r\n";
+					// $headers.= " Content-type: text/html; charset=iso-8859-1 \r\n";
+					// mail('hichamhamdan@gmail.com','Exemple NewsLetter',$mailContent,$headers);
+					//print $mailContent;
+					die('Mail envoyé');
+				break;
 				case 'actif':
 				case 'inactif':
 				$sql = $conn->prepare('update etudiants set statut=:action where id=:id');
@@ -104,6 +130,7 @@ $etudiants = $res->fetchAll();
 			<th align="center">statut</th>
 			<th align="center">Supprimer</th>
 			<th align="center">Modifier</th>
+			<th align="center">Mail</th>
 		</tr>
 	</thead>
 	<form action="" method="post" accept-charset="utf-8">
@@ -133,12 +160,13 @@ $etudiants = $res->fetchAll();
 					</td>
 					<td align="center"><a class="confirm" href="databases.php?id=<?php print $etudiant['id'] ?>&action=del" title="Supprimer"><i class="fa fa-trash-o"></i></a></td>
 					<td  align="center"><a class="confirm" href="databases.php?id=<?php print $etudiant['id'] ?>&action=modifier" title="Supprimer"><i class="fa fa-edit"></i></a></td>
+					<td><a href="?action=senMail" title="">Envoyer un mail</a></td>
 				</tr>
 			<?php endforeach ?>
 		</tbody>
 		<tfoot>
 			<tr>
-				<td colspan="9" align="right"></td>
+				<td colspan="10" align="right"></td>
 				<td align="center"><input type="submit" name="action" value="Supprimer"></td>
 			</tr>
 		</tfoot>
